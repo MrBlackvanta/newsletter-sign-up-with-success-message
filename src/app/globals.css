@@ -55,10 +55,22 @@
 }
 
 @utility v-btn {
-  @apply h-14 w-full rounded-lg bg-blue-800 font-bold text-white;
+  @apply relative isolate h-14 w-full rounded-lg bg-blue-800 font-bold text-white;
+  @apply transition-[color,box-shadow] duration-200 motion-reduce:transition-none;
+
+  &::before {
+    @apply absolute inset-0 -z-10 rounded-[inherit] opacity-0;
+    @apply bg-linear-to-r from-gradient-pink to-gradient-orange;
+    @apply transition-opacity duration-200 motion-reduce:transition-none;
+    content: "";
+  }
 
   &:hover {
-    @apply bg-linear-to-r from-gradient-pink to-gradient-orange text-blue-800 shadow-btn;
+    @apply text-blue-800 shadow-btn;
+  }
+
+  &:hover::before {
+    @apply opacity-100;
   }
 }
 
