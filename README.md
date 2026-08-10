@@ -104,6 +104,11 @@ Other notes:
   error string in the design, and it is shown for an empty field and a malformed address
   alike — decided by `input.validity` rather than a hand-written pattern. It renders beside
   the label on the same row, so an error causes no layout shift.
+- **The hover fill cross-fades over 200ms**, which the static design cannot specify either
+  way. `background-image` is not an interpolable property, so the gradient sits on a
+  `::before` layer whose opacity animates while the label colour and shadow transition
+  alongside it; `isolation: isolate` is what keeps that layer above the button's fill and
+  below its label. All three transitions are dropped under `prefers-reduced-motion: reduce`.
 - **The illustrations stay SVG.** They are vector in the starter files, and rendering them
   to WebP costs 4–7× the bytes at the sizes a 2× display needs (1.8KB brotli against 8–13KB)
   while going soft above the variant shipped. `<picture>` art-directs the two files, which

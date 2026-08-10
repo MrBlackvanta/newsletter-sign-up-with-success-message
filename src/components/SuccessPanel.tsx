@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
 import { SuccessIcon } from "@/components/icons";
+import { useEffect, useRef } from "react";
 
 type SuccessPanelProps = {
   email: string;
@@ -30,7 +30,7 @@ export default function SuccessPanel({ email, onDismiss }: SuccessPanelProps) {
           and click the button inside to confirm your subscription.
         </p>
       </div>
-      <button className="mt-8 v-btn" type="button" onClick={onDismiss}>
+      <button className="v-btn mt-8" type="button" onClick={onDismiss}>
         Dismiss message
       </button>
     </div>
