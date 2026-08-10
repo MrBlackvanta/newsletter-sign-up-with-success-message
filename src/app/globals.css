@@ -1,5 +1,51 @@
 @import "tailwindcss";
 
+@theme {
+  --color-red: #ff5e52;
+  --color-error: #d70f00;
+  --color-error-pale: #ffe7e6;
+  --color-gradient-pink: #ff527b;
+  --color-gradient-orange: #ff6a3a;
+  --color-blue-800: #242742;
+  --color-blue-700: #36384d;
+  --color-grey: #949494;
+  --color-muted: #767676;
+  --color-muted-inverse: #abadc2;
+
+  --text-display: 3.5rem;
+  --text-display--line-height: 1;
+  --text-display-sm: 2.5rem;
+  --text-display-sm--line-height: 1;
+  --text-label: 0.75rem;
+  --text-label--line-height: 1.5;
+
+  --radius-card: 2.25rem;
+
+  --shadow-card: 0 15px 60px rgb(0 0 0 / 0.25);
+  --shadow-btn: 0 16px 32px rgb(255 94 82 / 0.5);
+}
+
 @theme inline {
   --font-sans: var(--font-roboto);
+}
+
+@layer base {
+  body {
+    @apply bg-blue-700 text-blue-800;
+  }
+  a,
+  button {
+    @apply v-focus-ring;
+  }
+  button:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@utility v-focus-ring {
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800;
+}
+
+@utility v-focus-ring-inverse {
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
 }
