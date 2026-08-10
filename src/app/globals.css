@@ -31,7 +31,7 @@
 
 @layer base {
   body {
-    @apply bg-blue-700 text-blue-800;
+    @apply bg-white text-blue-800 sm:bg-blue-700;
   }
   a,
   button {
@@ -48,4 +48,32 @@
 
 @utility v-focus-ring-inverse {
   @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
+}
+
+@utility v-card {
+  @apply w-full bg-white sm:rounded-card sm:shadow-card;
+}
+
+@utility v-btn {
+  @apply h-14 w-full rounded-lg bg-blue-800 font-bold text-white;
+
+  &:hover {
+    @apply bg-linear-to-r from-gradient-pink to-gradient-orange text-blue-800 shadow-btn;
+  }
+}
+
+@utility v-field {
+  @apply h-14 w-full rounded-lg border border-grey px-6;
+
+  &::placeholder {
+    @apply text-muted;
+  }
+
+  &:focus {
+    @apply border-blue-800 outline-hidden;
+  }
+
+  &[aria-invalid="true"] {
+    @apply border-error bg-error-pale text-error;
+  }
 }

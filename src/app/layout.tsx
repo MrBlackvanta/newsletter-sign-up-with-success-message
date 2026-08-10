@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#36384d",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -47,7 +47,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${roboto.variable} antialiased`}>
-      <body className="flex min-h-dvh flex-col">{children}</body>
+      <body className="flex min-h-dvh flex-col">
+        {children}
+        <footer className="px-4 pb-0.5 text-center text-label text-muted sm:text-muted-inverse">
+          <p>
+            Challenge by{" "}
+            <a
+              className="underline sm:v-focus-ring-inverse"
+              href="https://www.frontendmentor.io?ref=challenge"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Frontend Mentor
+            </a>
+            . Coded by{" "}
+            <a
+              className="underline sm:v-focus-ring-inverse"
+              href="https://www.linkedin.com/in/abdelrhman-vanta/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Abdelrhman Abdelaal
+            </a>
+            .
+          </p>
+        </footer>
+      </body>
     </html>
   );
 }
