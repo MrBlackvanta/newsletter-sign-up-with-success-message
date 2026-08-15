@@ -1,0 +1,6 @@
+{
+  "name": "newsletter-sign-up-with-success-message",
+  "compatibility_date": "2026-08-15",
+  "workers_dev": true,
+  "assets": { "directory": "./out", "not_found_handling": "404-page" }
+}

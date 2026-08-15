@@ -21,7 +21,8 @@ This is a solution to the [Newsletter sign-up form with success message challeng
 ### Links
 
 - Solution URL: [GitHub](https://github.com/MrBlackvanta/newsletter-sign-up-with-success-message)
-- Live Site URL: [Netlify](https://vanta-newsletter-sign-up-with-success.netlify.app)
+- Live Site URL: [Cloudflare](https://newsletter-sign-up-with-success-message.abdelrhman-ahmed8881.workers.dev)
+- Mirror: [Netlify](https://vanta-newsletter-sign-up-with-success.netlify.app)
 
 ## My process
 
