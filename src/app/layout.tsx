@@ -12,7 +12,8 @@ const roboto = Roboto({
 const title = "Newsletter sign-up form with success message";
 const description =
   "Join 60,000+ product managers receiving monthly updates on product discovery, measurement and more — a Frontend Mentor challenge built with Next.js, TypeScript, and Tailwind CSS.";
-const siteUrl = "https://newsletter-sign-up-with-success-message.abdelrhman-ahmed8881.workers.dev";
+const siteUrl =
+  "https://newsletter-sign-up-with-success-message.abdelrhman-ahmed8881.workers.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -47,9 +48,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${roboto.variable} antialiased`}>
-      <body className="flex min-h-dvh flex-col">
+      <body className="relative flex min-h-dvh flex-col">
         {children}
-        <footer className="px-4 pb-0.5 text-center text-label text-muted sm:text-muted-inverse">
+        <footer className="absolute inset-x-0 bottom-0 px-4 pb-0.5 text-center text-label text-muted sm:text-muted-inverse">
           <p>
             Challenge by{" "}
             <a
