@@ -52,16 +52,7 @@ export default function RootLayout({
         {children}
         <footer className="absolute inset-x-0 bottom-0 px-4 pb-0.5 text-center text-label text-muted sm:text-muted-inverse">
           <p>
-            Challenge by{" "}
-            <a
-              className="underline sm:v-focus-ring-inverse"
-              href="https://www.frontendmentor.io?ref=challenge"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Frontend Mentor
-            </a>
-            . Coded by{" "}
+            Coded by{" "}
             <a
               className="underline sm:v-focus-ring-inverse"
               href="https://www.linkedin.com/in/abdelrhman-vanta/"
