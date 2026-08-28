@@ -1,121 +1,80 @@
-# Frontend Mentor - Newsletter sign-up form with success message solution
+# Newsletter sign-up with success message
 
-This is a solution to the [Newsletter sign-up form with success message challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/newsletter-signup-form-with-success-message-3FC1AZbNrv). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
-
-## Table of contents
-
-- [Overview](#overview)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [Design deviations](#design-deviations)
-- [Author](#author)
-
-## Overview
-
-### Screenshot
+My solution to the [Newsletter sign-up with success message](https://www.frontendmentor.io/challenges/newsletter-signup-form-with-success-message-3FC1AZbNrv)
+challenge on Frontend Mentor.
 
 ![](./screenshot.webp)
 
-### Links
+- Live: https://newsletter-sign-up-with-success-message.abdelrhman-ahmed8881.workers.dev
+- Code: https://github.com/MrBlackvanta/newsletter-sign-up-with-success-message
 
-- Solution URL: [GitHub](https://github.com/MrBlackvanta/newsletter-sign-up-with-success-message)
-- Live Site URL: [Cloudflare](https://newsletter-sign-up-with-success-message.abdelrhman-ahmed8881.workers.dev)
+## Built with
 
-## My process
+- Next.js 16, App Router
+- React 19 and TypeScript
+- Tailwind CSS v4
 
-### Built with
+## Notes
 
-- [Next.js 16](https://nextjs.org/) (App Router, React Compiler, Turbopack)
-- [React 19](https://react.dev/)
-- [TypeScript](https://www.typescriptlang.org/) (strict)
-- [Tailwind CSS v4](https://tailwindcss.com/)
+### Colour
 
-### Design deviations
+Six pairings failed, four on text contrast and two on non-text. Each moved the smallest
+amount that clears its threshold:
 
-Colours come from the `.fig` rather than `style-guide.md`, whose HSL values round a point
-off on two of the four: `hsl(4, 100%, 67%)` resolves to `#FF6257` where the file paints
-`#FF6155`, and `hsl(235, 18%, 26%)` to `#36384E` against the file's `#36384D`. Two paints
-the style guide omits entirely: `#FFE7E6` for the error field and the button's hover
-gradient, `#FF527B → #FF6A3A`.
+|                                 | design          | built     | contrast     |
+| ------------------------------- | --------------- | --------- | ------------ |
+| Placeholder                     | `#949494`       | `#767676` | 3.03 to 4.54 |
+| Input border                    | about `#C6C6C6` | `#949494` | 1.71 to 3.03 |
+| Check circle                    | `#FF6155`       | `#FF5E52` | 2.96 to 3.01 |
+| Error message, field and border | `#FF6155`       | `#D70F00` | 2.96 to 5.31 |
+| Typed text in the error field   | `#FF6155`       | `#D70F00` | 2.51 to 4.50 |
+| Hover button label              | white           | `#242742` | 2.85 to 4.67 |
 
-Every text and boundary pairing was measured against its actual backdrop. Six failed WCAG
-AA — four against 1.4.3's 4.5:1, and the border and check circle against 1.4.11's 3:1 —
-and each moved by the smallest amount that clears its threshold, hue and saturation held:
+**The input border came from the design JPG, not the file**, because the parser reports
+fills and not strokes. All four edges measure about `#C6C6C6`, so the real outline is much
+lighter than the style guide's grey. I sanity-checked the method on the same export: the
+focused border measures within a couple of points of its true value, and the error
+border's luma matches its swatch. It only looks washed out because JPEG chroma subsampling
+smears thin red lines.
 
-| Role                            | Design     | Shipped   | Contrast before → after |
-| ------------------------------- | ---------- | --------- | ----------------------- |
-| Placeholder                     | `#949494`  | `#767676` | 3.03 → **4.54**         |
-| Input border                    | `~#C6C6C6` | `#949494` | 1.71 → **3.03**         |
-| Bullet check circle             | `#FF6155`  | `#FF5E52` | 2.96 → **3.01**         |
-| Error message, field and border | `#FF6155`  | `#D70F00` | 2.96 → **5.31**         |
-| Typed text in the error field   | `#FF6155`  | `#D70F00` | 2.51 → **4.50**         |
-| Hover button label              | `#FFFFFF`  | `#242742` | 2.85 → **4.67**         |
+**The hover gradient is untouched.** White on it is under 3:1 at both ends, so the label
+flips to the dark navy instead and the large coloured area stays exactly as designed.
 
-Three of those need explaining:
+The attribution needs two greys, one for the white card below 640px and one for the dark
+page above it. No single neutral clears 4.5:1 on both.
 
-- **The input border is read from the design JPG, not the `.fig`** — the parser reports
-  fills, not strokes. All four edges measure `#C4C4C4`–`#C8C8C8` at 1px, so the design's
-  outline is far lighter than the style guide's grey and `#949494` is the minimum that
-  clears 1.4.11. The method is validated on the same export: the focused border measures
-  `#2A2833` against a true `#242742`, and the error border's luma (145) matches `#FF6155`
-  (143) — its colour only _looks_ washed out because JPEG chroma subsampling smears thin
-  red lines.
-- **The error red is one token for three things** — message, typed text and border. It is
-  `#FF6155` with hue and saturation fixed (H 4.24° → 4.19°, S 100%) and lightness dropped
-  from 66.7% to 42.2%, rather than a neutral substitute.
-- **The hover gradient is untouched.** White on it reads 3.11 at the pink end and 2.85 at
-  the orange end, so the _label_ flips to `#242742` instead — 4.67 at the worst point along
-  the ramp, and the large coloured area stays exactly as designed.
+### Deviations
 
-The attribution needs two values, `#767676` and `#ABADC2`: below 640px it sits on the
-white card and above it on the `#36384D` page, and no single neutral grey clears 4.5:1 on
-both.
+**The desktop JPG is stale relative to the design file.** Its card measures 928 wide with
+asymmetric padding against the file's internally consistent 904 and symmetric 32, so an
+overlay on the JPG sits 12px narrower per side. The build follows the file.
 
-Other notes:
+**The tablet frame contradicts itself.** It claims a 16px label inside an 18px box, which
+1.5 line-height can't produce, and desktop and mobile both say 12. It also uses a 16px gap
+where the other two use 24, and fractional card padding that only exists because the
+illustration is 358.29px tall. Both normalised, costing 2px of card height.
 
-- **The desktop JPG is stale relative to the `.fig`.** Its card measures 928 wide with 64
-  left / 24 right padding, against the file's internally consistent 904 and symmetric 32.
-  The build follows the file, so an overlay on `desktop-design.jpg` sits 12px narrower per
-  side.
-- **The tablet frame's label claims 16px inside an 18px box**, which 1.5 line-height cannot
-  produce. Desktop and mobile both specify 12px, so 12px it is. That frame also uses a
-  16px input-to-button gap where the other two use 24px, and fractional 42.86px card
-  padding that only exists because the illustration is 358.29px tall — both normalised (24
-  and 40), costing 2px of card height.
-- **The tablet illustration reproduces the design's vertical crop.** The artwork is the
-  mobile SVG scaled 1.408×, whose natural height at 528px wide would be 400px against the
-  frame's 358.29px; the mask clips roughly 7px off the top and 34px off the bottom, which
-  is `object-cover` at `center 18%`. It also removes the SVG's baked bottom radius, which
-  would otherwise scale to 22.5px inside a 16px container.
-- **Both breakpoints are mine.** The design ships 375, 768 and 1440 frames with nothing in
-  between, so 640px switches the full-bleed phone layout to a card and 1024px switches the
-  stacked card to two columns — 904px cannot fit at 768. The mobile success screen's 144px
-  top gap rounds the frame's 149px, which is not a designed value: the two mobile exports
-  are 842px and 812px tall.
-- **The card sits ~10px above the design's vertical centre**, because the attribution is a
-  real row in the page's flex column and the Frontend Mentor frames have no footer.
-- **The email field replaces the user-agent focus ring rather than removing it.** Focus is
-  signalled by the design's own border change to `#242742` (14.54:1), with a transparent
-  2px outline retained for forced-colors mode; buttons and links keep a 2px `#242742` ring
-  on `:focus-visible`.
-- **One validation message covers both failure modes.** "Valid email required" is the only
-  error string in the design, and it is shown for an empty field and a malformed address
-  alike — decided by `input.validity` rather than a hand-written pattern. It renders beside
-  the label on the same row, so an error causes no layout shift.
-- **The hover fill cross-fades over 200ms**, which the static design cannot specify either
-  way. `background-image` is not an interpolable property, so the gradient sits on a
-  `::before` layer whose opacity animates while the label colour and shadow transition
-  alongside it; `isolation: isolate` is what keeps that layer above the button's fill and
-  below its label. All three transitions are dropped under `prefers-reduced-motion: reduce`.
-- **The illustrations stay SVG.** They are vector in the starter files, and rendering them
-  to WebP costs 4–7× the bytes at the sizes a 2× display needs (1.8KB brotli against 8–13KB)
-  while going soft above the variant shipped. `<picture>` art-directs the two files, which
-  is why they are plain `<img>` rather than `next/image`.
+**Both breakpoints are mine.** The design ships 375, 768 and 1440 with nothing between, so
+640 switches the full-bleed phone layout to a card and 1024 goes to two columns. The 904px
+card can't fit at 768.
+
+**One validation message covers both failures.** "Valid email required" is the only error
+string in the design and it's shown for an empty field and a malformed address alike,
+decided by `input.validity` rather than a hand-written pattern. It sits beside the label on
+the same row, so an error causes no layout shift.
+
+Focus replaces the user-agent ring rather than removing it, using the design's own border
+change, with a transparent outline retained for forced-colors mode.
+
+**The illustrations stay SVG.** They're vector in the starter files, and rendering them to
+WebP costs four to seven times the bytes at the sizes a 2x display needs. `<picture>`
+art-directs the two files, which is why they're plain `<img>` rather than `next/image`.
+
+The hover fill cross-fades on a `::before` layer, since `background-image` isn't an
+interpolable property. Dropped under `prefers-reduced-motion`.
 
 ## Author
 
-- UpWork - [Abdelrhman Abdelaal](https://www.upwork.com/freelancers/mrblackvanta)
-- Frontend Mentor - [@MrBlackvanta](https://www.frontendmentor.io/profile/MrBlackvanta)
-- LinkedIn - [Abdelrhman Abdelaal](https://www.linkedin.com/in/abdelrhman-vanta/)
+- [LinkedIn](https://www.linkedin.com/in/abdelrhman-vanta/)
+- [UpWork](https://www.upwork.com/freelancers/mrblackvanta)
+- [Frontend Mentor](https://www.frontendmentor.io/profile/MrBlackvanta)
